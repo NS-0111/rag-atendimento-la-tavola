@@ -1,0 +1,458 @@
+{
+  "modelo_llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "prompt": "Você é o assistente de atendimento da La Tavola, uma pizzaria italiana. Responda somente com informações que estejam escritas nos trechos fornecidos. Nunca use conhecimento próprio e nunca suponha. Se os trechos não trouxerem a informação pedida de forma explícita, responda exatamente: \"Não encontrei essa informação. Sugiro falar com o atendimento.\" Responda em português, de forma curta.",
+  "rodar": "todas",
+  "respostas": [
+    {
+      "resposta": "Horário de funcionamento:\n\n- Terça a Quinta: das 18h às 23h\n- Sexta e Sábado: das 18h às 00h (meia-noite)\n- Domingo: das 12h às 22h\n- Segunda-feira: Fechada\n\nEm feriados, funcionamos no horário de domingo.",
+      "segundos": 34.5,
+      "fontes": [
+        "Horário de funcionamento",
+        "Contato",
+        "Cancelamento"
+      ],
+      "id": 1,
+      "tipo": "direta",
+      "pergunta": "Qual o horário de funcionamento da La Tavola?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Aceitamos cartão de crédito e débito (Visa, Mastercard e Elo), Pix e dinheiro. Para pagar em dinheiro na entrega, avise o valor para o troco.",
+      "segundos": 21.0,
+      "fontes": [
+        "Formas de pagamento",
+        "Reembolso",
+        "Entradas"
+      ],
+      "id": 2,
+      "tipo": "direta",
+      "pergunta": "Quais as formas de pagamento aceitas?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: omitiu o vale-refeição (aceito no salão e na retirada)"
+    },
+    {
+      "resposta": "O prazo do reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil.",
+      "segundos": 18.2,
+      "fontes": [
+        "Reembolso",
+        "Prazo de entrega",
+        "Atraso"
+      ],
+      "id": 3,
+      "tipo": "direta",
+      "pergunta": "Qual o prazo do reembolso?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "R$ 8 até 3 km e R$ 14 de 3 a 6 km.",
+      "segundos": 15.0,
+      "fontes": [
+        "Entrega",
+        "Prazo de entrega",
+        "Formas de pagamento"
+      ],
+      "id": 4,
+      "tipo": "direta",
+      "pergunta": "Qual é a taxa de entrega?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Sim, você pode cancelar o pedido sem custo até 5 minutos após a confirmação.",
+      "segundos": 14.7,
+      "fontes": [
+        "Cancelamento",
+        "Atraso",
+        "Retirada"
+      ],
+      "id": 5,
+      "tipo": "direta",
+      "pergunta": "Posso cancelar o pedido depois da confirmação?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Para fazer uma reserva de mesa, você pode fazer através do WhatsApp ou por telefone, com pelo menos 1 hora de antecedência. A tolerância de atraso é de 15 minutos. Às sextas e sábados, cada mesa fica reservada por 2 horas.",
+      "segundos": 27.3,
+      "fontes": [
+        "Reservas",
+        "Cancelamento",
+        "Entradas"
+      ],
+      "id": 6,
+      "tipo": "direta",
+      "pergunta": "Como faço uma reserva de mesa?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Sim, existe o cupom PRIMEIRA10 que oferece 10% de desconto no primeiro pedido, na entrega ou na retirada.",
+      "segundos": 17.3,
+      "fontes": [
+        "Cupons",
+        "Atraso",
+        "Retirada"
+      ],
+      "id": 7,
+      "tipo": "direta",
+      "pergunta": "Existe cupom de desconto no primeiro pedido?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "As pizzas têm tamanhos médios (30 cm, 6 fatias), grandes (35 cm, 8 fatias) e gigantes (40 cm, 12 fatias). A Margherita custa R$ 44 para o tamanho médio.",
+      "segundos": 36.4,
+      "fontes": [
+        "Pizzas",
+        "Alergênicos",
+        "Sobremesas"
+      ],
+      "id": 8,
+      "tipo": "direta",
+      "pergunta": "Quais são os tamanhos das pizzas e quanto custa a Margherita?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "As massas presentes no cardápio incluem:\n\n- Spaghetti alla carbonara\n- Fettuccine ao molho alfredo\n- Lasanha à bolonhesa\n- Gnocchi de batata ao sugo\n- Ravioli de queijo com molho de tomate",
+      "segundos": 37.4,
+      "fontes": [
+        "Alergênicos",
+        "Massas",
+        "Pizzas"
+      ],
+      "id": 9,
+      "tipo": "direta",
+      "pergunta": "Quais massas tem no cardápio?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Sobremesas servidas:\n\n1. Tiramisù: R$ 26.\n2. Panna cotta de frutas vermelhas: R$ 24.\n3. Cannoli (2 unidades): R$ 22.\n4. Gelato, 2 bolas (pistache, chocolate ou limão siciliano): R$ 20.\n5. Pizza doce de chocolate com morango, média: R$ 48.",
+      "segundos": 42.6,
+      "fontes": [
+        "Massas",
+        "Sobremesas",
+        "Alergênicos"
+      ],
+      "id": 10,
+      "tipo": "direta",
+      "pergunta": "Quais sobremesas vocês servem?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "O chope artesanal custa R$ 16.",
+      "segundos": 15.9,
+      "fontes": [
+        "Bebidas",
+        "Cupons",
+        "Entradas"
+      ],
+      "id": 11,
+      "tipo": "direta",
+      "pergunta": "Quais bebidas vocês têm e quanto custa o chope?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: respondeu só o preço do chope e não listou as bebidas"
+    },
+    {
+      "resposta": "O tiramisù contém glúten, leite e ovos.",
+      "segundos": 16.4,
+      "fontes": [
+        "Alergênicos",
+        "Sobremesas",
+        "Massas"
+      ],
+      "id": 12,
+      "tipo": "direta",
+      "pergunta": "Quais alergênicos o tiramisù contém?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 22.0,
+      "fontes": [
+        "Alergênicos",
+        "Massas",
+        "Pizzas"
+      ],
+      "id": 13,
+      "tipo": "parafraseada",
+      "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca: a seção Entradas ficou fora dos 3 trechos; recusou de forma coerente com o contexto"
+    },
+    {
+      "resposta": "Sugiro consultar o cardápio para ver se há opções veganas disponíveis. Algumas opções incluem:\n\n- Bruschetta de tomate sem queijo (V)\n- Focaccia de alecrim com azeite (V)\n- Pizza Funghi (cogumelos e muçarela), vegetariana, média\n- Pizza de Legumes Grelhados (V), com queijo vegetal de castanha, média\n- Penne ao pomodoro (V)\n- Salada Caprese, vegetariana\n\nSe encontrar alguma opção específica que você goste, pode entrar em contato com o atendimento para confirmar detalhes adicionais.",
+      "segundos": 56.9,
+      "fontes": [
+        "Entradas",
+        "Vegetarianas e veganas",
+        "Massas"
+      ],
+      "id": 14,
+      "tipo": "parafraseada",
+      "pergunta": "Sou vegano, o que posso comer aí?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: marcou a focaccia como (V) sem constar no cardápio e listou pizza e salada vegetarianas (com queijo) como opção vegana"
+    },
+    {
+      "resposta": "A pizza ficará pronta em cerca de 25 minutos.",
+      "segundos": 12.5,
+      "fontes": [
+        "Retirada",
+        "Prazo de entrega",
+        "Entrega"
+      ],
+      "id": 15,
+      "tipo": "parafraseada",
+      "pergunta": "Quanto tempo demora até a pizza chegar na minha casa?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: usou o prazo da Retirada (25 min) em vez do prazo de entrega, que estava nos trechos"
+    },
+    {
+      "resposta": "Para retirar seu pedido na La Tavola, basta chegar à pizzaria informando seu nome ao chegarmos. O pedido ficará pronto em aproximadamente 25 minutos. Você ganhará 10% de desconto se retirar o pedido, mas não será aplicado aos itens de bebidas alcoólicas. O pedido ficará guardado por até 30 minutos após ser pronto.",
+      "segundos": 35.7,
+      "fontes": [
+        "Retirada",
+        "Atraso",
+        "Reembolso"
+      ],
+      "id": 16,
+      "tipo": "parafraseada",
+      "pergunta": "Quero buscar meu pedido no local, como funciona?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 13.5,
+      "fontes": [
+        "Reembolso",
+        "Cancelamento",
+        "Retirada"
+      ],
+      "id": 17,
+      "tipo": "parafraseada",
+      "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca: a seção Atraso ficou fora; recusou de forma coerente com o contexto"
+    },
+    {
+      "resposta": "Para contato com a equipe da La Tavola, você pode ligar para nós pelos números 11 9xxxxxx ou entrar em contato através do chat online.",
+      "segundos": 26.3,
+      "fontes": [
+        "Retirada",
+        "Entrega",
+        "Pizzas"
+      ],
+      "id": 18,
+      "tipo": "parafraseada",
+      "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca + LLM: a seção Contato ficou fora e o LLM inventou um número de telefone e um chat online"
+    },
+    {
+      "resposta": "Das 18h às 00h (meia-noite).",
+      "segundos": 12.9,
+      "fontes": [
+        "Horário de funcionamento",
+        "Cancelamento",
+        "Prazo de entrega"
+      ],
+      "id": 19,
+      "tipo": "parafraseada",
+      "pergunta": "Até que horas dá para pedir no sábado à noite?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Sim, você pode usar o Vale Refeição (VR) do seu trabalho para pagar sua conta na La Tavola.",
+      "segundos": 17.4,
+      "fontes": [
+        "Formas de pagamento",
+        "Entrega",
+        "Vegetarianas e veganas"
+      ],
+      "id": 20,
+      "tipo": "parafraseada",
+      "pergunta": "Posso pagar com o VR do meu trabalho?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: disse que pode usar o VR sem informar que não vale na entrega"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 21.1,
+      "fontes": [
+        "Formas de pagamento",
+        "Vegetarianas e veganas",
+        "Pizzas"
+      ],
+      "id": 21,
+      "tipo": "parafraseada",
+      "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca: a seção Reembolso ficou fora; recusou de forma coerente com o contexto"
+    },
+    {
+      "resposta": "Ligue com 3 dias de antecedência para garantir uma mesa para 12 pessoas.",
+      "segundos": 15.6,
+      "fontes": [
+        "Reservas",
+        "Horário de funcionamento",
+        "Massas"
+      ],
+      "id": 22,
+      "tipo": "parafraseada",
+      "pergunta": "Quero garantir lugar para o aniversário de 12 pessoas.",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Sim, dá para pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.",
+      "segundos": 29.8,
+      "fontes": [
+        "Pizzas",
+        "Vegetarianas e veganas",
+        "Alergênicos"
+      ],
+      "id": 23,
+      "tipo": "parafraseada",
+      "pergunta": "Dá para pedir uma pizza metade de um sabor e metade de outro?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Os itens veganos (V) não levam leite, então você pode optar por eles se tiver intolerância a lactose.",
+      "segundos": 20.2,
+      "fontes": [
+        "Alergênicos",
+        "Entradas",
+        "Massas"
+      ],
+      "id": 24,
+      "tipo": "parafraseada",
+      "pergunta": "Sou intolerante a lactose, o que preciso saber?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: só indicou os itens veganos; não disse que queijos e molhos cremosos contêm lactose"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 19.8,
+      "fontes": [
+        "Pizzas",
+        "Entrega",
+        "Formas de pagamento"
+      ],
+      "id": 25,
+      "tipo": "sem_resposta",
+      "pergunta": "Vocês têm estacionamento próprio?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 20.9,
+      "fontes": [
+        "Pizzas",
+        "Massas",
+        "Entradas"
+      ],
+      "id": 26,
+      "tipo": "sem_resposta",
+      "pergunta": "Qual é a receita exata da massa, com as quantidades?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não, o salão da La Tavola não permite levar animais dentro.",
+      "segundos": 13.5,
+      "fontes": [
+        "Formas de pagamento",
+        "Cupons",
+        "Entrega"
+      ],
+      "id": 27,
+      "tipo": "sem_resposta",
+      "pergunta": "Posso levar meu cachorro para o salão?",
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: deveria recusar; inventou que o salão não permite animais"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 19.9,
+      "fontes": [
+        "Entrega",
+        "Formas de pagamento",
+        "Pizzas"
+      ],
+      "id": "extra1",
+      "tipo": "sem_resposta_nova",
+      "pergunta": "Vocês têm Wi-Fi para os clientes?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 14.2,
+      "fontes": [
+        "Massas",
+        "Entradas",
+        "Sobremesas"
+      ],
+      "id": "extra2",
+      "tipo": "sem_resposta_nova",
+      "pergunta": "Qual é o CNPJ da La Tavola?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+      "segundos": 20.4,
+      "fontes": [
+        "Horário de funcionamento",
+        "Pizzas",
+        "Massas"
+      ],
+      "id": "extra3",
+      "tipo": "sem_resposta_nova",
+      "pergunta": "Vocês organizam festa de casamento?",
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    }
+  ],
+  "nota": "Avaliação feita pelo Claude com o mesmo critério do v1 (comparando com data/*.md). Conferir por amostra antes de citar no README. Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
+}

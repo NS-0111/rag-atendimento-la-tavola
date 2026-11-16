@@ -1,0 +1,684 @@
+{
+  "modelo_llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "k_trechos": 3,
+  "max_tokens": 150,
+  "busca": "híbrida (BM25 + embeddings, RRF)",
+  "respostas": [
+    {
+      "id": 1,
+      "tipo": "direta",
+      "pergunta": "Qual o horário de funcionamento da La Tavola?",
+      "resposta": "A La Tavola funciona de terça a domingo, conforme listado abaixo:\n\n- Terça a quinta: das 18h às 23h\n- Sexta e sábado: das 18h às 00h (meia-noite)\n- Domingo: das 12h às 22h\n- Segunda-feira: fechada\n\nTodos os dias estão abertos no horário de funcionamento mencionado.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Horário de funcionamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Contato"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cancelamento"
+        }
+      ],
+      "segundos": 36.5,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 2,
+      "tipo": "direta",
+      "pergunta": "Quais as formas de pagamento aceitas?",
+      "resposta": "Aceitamos cartão de crédito e débito (Visa, Mastercard e Elo), Pix e dinheiro.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Reembolso"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        }
+      ],
+      "segundos": 15.3,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: omitiu o vale-refeição (aceito no salão e na retirada) na lista de formas de pagamento"
+    },
+    {
+      "id": 3,
+      "tipo": "direta",
+      "pergunta": "Qual o prazo do reembolso?",
+      "resposta": "O prazo do reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Reembolso"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Prazo de entrega"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Atraso"
+        }
+      ],
+      "segundos": 16.7,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 4,
+      "tipo": "direta",
+      "pergunta": "Qual é a taxa de entrega?",
+      "resposta": "A taxa de entrega é de R$ 8 até 3 km e R$ 14 de 3 a 6 km.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Prazo de entrega"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        }
+      ],
+      "segundos": 15.7,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 5,
+      "tipo": "direta",
+      "pergunta": "Posso cancelar o pedido depois da confirmação?",
+      "resposta": "Sim, você pode cancelar o pedido sem custo até 5 minutos após a confirmação.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Cancelamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Atraso"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        }
+      ],
+      "segundos": 13.2,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 6,
+      "tipo": "direta",
+      "pergunta": "Como faço uma reserva de mesa?",
+      "resposta": "Para fazer uma reserva de mesa, você pode fazer através do WhatsApp ou por telefone, com pelo menos 1 hora de antecedência. A tolerância de atraso é de 15 minutos. Às sextas e sábados, cada mesa fica reservada por 2 horas.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Reservas"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cancelamento"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        }
+      ],
+      "segundos": 26.5,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 7,
+      "tipo": "direta",
+      "pergunta": "Existe cupom de desconto no primeiro pedido?",
+      "resposta": "Sim, existe o cupom PRIMEIRA10 que oferece 10% de desconto no primeiro pedido, na entrega ou na retirada.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Cupons"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Atraso"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        }
+      ],
+      "segundos": 16.9,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 8,
+      "tipo": "direta",
+      "pergunta": "Quais são os tamanhos das pizzas e quanto custa a Margherita?",
+      "resposta": "As pizzas têm tamanhos média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias). A Margherita custa R$ 44.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Sobremesas"
+        }
+      ],
+      "segundos": 33.6,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: deu R$ 44 para a Margherita sem dizer que é o preço da média (grande R$ 56, gigante R$ 74)"
+    },
+    {
+      "id": 9,
+      "tipo": "direta",
+      "pergunta": "Quais massas tem no cardápio?",
+      "resposta": "As massas presentes no cardápio incluem:\n\n- Spaghetti alla carbonara\n- Fettuccine ao molho alfredo\n- Lasanha à bolonhesa\n- Gnocchi de batata ao sugo\n\nEstas massas são oferecidas como opções para aqueles que possuem restrições alimentares.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        }
+      ],
+      "segundos": 40.2,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: lista 4 de 5 massas (falta o ravioli) e inventa que são para quem tem restrições alimentares"
+    },
+    {
+      "id": 10,
+      "tipo": "direta",
+      "pergunta": "Quais sobremesas vocês servem?",
+      "resposta": "Sobremesas servidas:\n\n- Tiramisù: R$ 26.\n- Panna cotta de frutas vermelhas: R$ 24.\n- Cannoli (2 unidades): R$ 22.\n- Gelato, 2 bolas (pistache, chocolate ou limão siciliano): R$ 20.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Sobremesas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        }
+      ],
+      "segundos": 34.1,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: lista 4 de 5 sobremesas (falta a pizza doce)"
+    },
+    {
+      "id": 11,
+      "tipo": "direta",
+      "pergunta": "Quais bebidas vocês têm e quanto custa o chope?",
+      "resposta": "O chope artesanal de 300 ml custa R$ 16.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Bebidas"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cupons"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        }
+      ],
+      "segundos": 16.9,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: respondeu só o preço do chope e não listou as bebidas"
+    },
+    {
+      "id": 12,
+      "tipo": "direta",
+      "pergunta": "Quais alergênicos o tiramisù contém?",
+      "resposta": "O tiramisù contém glúten, leite e ovos.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Sobremesas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        }
+      ],
+      "segundos": 15.6,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 13,
+      "tipo": "parafraseada",
+      "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+      "resposta": "Não encontramos informações específicas sobre se servem algo para beliscar antes das pizzas neste documento. Sugiro falar com o atendimento para obter essa informação.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        }
+      ],
+      "segundos": 27.9,
+      "secao_certa_nos_3_trechos": false,
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca: a seção Entradas ficou fora dos 3 trechos; o LLM recusou de forma coerente com o contexto"
+    },
+    {
+      "id": 14,
+      "tipo": "parafraseada",
+      "pergunta": "Sou vegano, o que posso comer aí?",
+      "resposta": "Peço desculpas pela confusão, mas infelizmente não encontrei informações específicas sobre opções veganas na sua carta do cardápio. Sugiro entrar em contato diretamente com o atendimento para obter mais detalhes ou alternativas.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Vegetarianas e veganas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        }
+      ],
+      "segundos": 27.2,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: a seção certa estava nos 3 trechos, mas ele disse que não encontrou"
+    },
+    {
+      "id": 15,
+      "tipo": "parafraseada",
+      "pergunta": "Quanto tempo demora até a pizza chegar na minha casa?",
+      "resposta": "A pizza ficará pronta em cerca de 25 minutos.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Prazo de entrega"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        }
+      ],
+      "segundos": 11.3,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: a seção Prazo de entrega estava nos 3 trechos, mas ele usou o prazo da Retirada (25 min)"
+    },
+    {
+      "id": 16,
+      "tipo": "parafraseada",
+      "pergunta": "Quero buscar meu pedido no local, como funciona?",
+      "resposta": "Para retirar o pedido no local, informe seu nome ao chegar na pizzaria. O pedido ficará pronto em cerca de 25 minutos. Você ganhará 10% de desconto se retirar o pedido.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Atraso"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Reembolso"
+        }
+      ],
+      "segundos": 22.2,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 17,
+      "tipo": "parafraseada",
+      "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+      "resposta": "Sim, se o pedido vier errado, com problema ou não for entregue, você tem direito a reembolso total. Por favor, avise em até 24 horas, com uma foto quando houver problema no produto. O prazo do reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Reembolso"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cancelamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        }
+      ],
+      "segundos": 32.7,
+      "secao_certa_nos_3_trechos": false,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca: a seção Atraso ficou fora; a resposta fala de reembolso e não de atraso"
+    },
+    {
+      "id": 18,
+      "tipo": "parafraseada",
+      "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+      "resposta": "Para contato com a equipe da La Tavola, você pode entrar em contato através do telefone ou pelo WhatsApp.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Retirada"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        }
+      ],
+      "segundos": 21.5,
+      "secao_certa_nos_3_trechos": false,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "busca: a seção Contato ficou fora; cita telefone/WhatsApp sem número e 'telefone' não está nos trechos"
+    },
+    {
+      "id": 19,
+      "tipo": "parafraseada",
+      "pergunta": "Até que horas dá para pedir no sábado à noite?",
+      "resposta": "Das 18h às 00h (meia-noite).",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Horário de funcionamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cancelamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Prazo de entrega"
+        }
+      ],
+      "segundos": 11.1,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 20,
+      "tipo": "parafraseada",
+      "pergunta": "Posso pagar com o VR do meu trabalho?",
+      "resposta": "Sim, o Vale Refeição (VR) é aceito apenas no salão e na retirada, não na entrega.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Vegetarianas e veganas"
+        }
+      ],
+      "segundos": 16.4,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 21,
+      "tipo": "parafraseada",
+      "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+      "resposta": "Peça um novo pedido ou entre em contato pelo telefone para resolver isso.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Vegetarianas e veganas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        }
+      ],
+      "segundos": 20.0,
+      "secao_certa_nos_3_trechos": false,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "busca + LLM: a seção Reembolso ficou fora e o LLM inventou uma orientação em vez de recusar"
+    },
+    {
+      "id": 22,
+      "tipo": "parafraseada",
+      "pergunta": "Quero garantir lugar para o aniversário de 12 pessoas.",
+      "resposta": "Ligue com 3 dias de antecedência para garantir mesa para 12 pessoas.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Reservas"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Horário de funcionamento"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        }
+      ],
+      "segundos": 14.9,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 23,
+      "tipo": "parafraseada",
+      "pergunta": "Dá para pedir uma pizza metade de um sabor e metade de outro?",
+      "resposta": "Sim, dá para pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Vegetarianas e veganas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        }
+      ],
+      "segundos": 28.9,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "—"
+    },
+    {
+      "id": 24,
+      "tipo": "parafraseada",
+      "pergunta": "Sou intolerante a lactose, o que preciso saber?",
+      "resposta": "Os itens veganos (V) não levam leite, então você pode optar por eles se tiver intolerância a lactose.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Alergênicos"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        }
+      ],
+      "segundos": 19.3,
+      "secao_certa_nos_3_trechos": true,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "parcial",
+      "causa_do_erro": "LLM: só indicou os itens veganos; não disse que queijos e molhos cremosos contêm lactose"
+    },
+    {
+      "id": 25,
+      "tipo": "sem_resposta",
+      "pergunta": "Vocês têm estacionamento próprio?",
+      "resposta": "Não, não temos estacionamento próprio.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        }
+      ],
+      "segundos": 17.3,
+      "secao_certa_nos_3_trechos": null,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: deveria recusar; afirmou 'não temos estacionamento', informação que não está nos documentos"
+    },
+    {
+      "id": 26,
+      "tipo": "sem_resposta",
+      "pergunta": "Qual é a receita exata da massa, com as quantidades?",
+      "resposta": "Não encontrei informações específicas sobre a receita exata da massa ou suas quantidades neste documento. Sugiro entrar em contato diretamente com o atendimento para obter essa informação.",
+      "fontes": [
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Pizzas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Massas"
+        },
+        {
+          "arquivo": "cardapio.md",
+          "secao": "Entradas"
+        }
+      ],
+      "segundos": 27.4,
+      "secao_certa_nos_3_trechos": null,
+      "dica_recusa_automatica": true,
+      "avaliacao_manual": "correta",
+      "causa_do_erro": "recusou"
+    },
+    {
+      "id": 27,
+      "tipo": "sem_resposta",
+      "pergunta": "Posso levar meu cachorro para o salão?",
+      "resposta": "Não posso levar seu cachorro para o salão.",
+      "fontes": [
+        {
+          "arquivo": "faq.md",
+          "secao": "Formas de pagamento"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Cupons"
+        },
+        {
+          "arquivo": "faq.md",
+          "secao": "Entrega"
+        }
+      ],
+      "segundos": 11.1,
+      "secao_certa_nos_3_trechos": null,
+      "dica_recusa_automatica": false,
+      "avaliacao_manual": "errada",
+      "causa_do_erro": "LLM: deveria recusar; inventou uma regra sobre cachorro"
+    }
+  ],
+  "nota": "Avaliação feita pelo Claude em duas passadas, comparando cada resposta com data/cardapio.md e data/faq.md. Critério: pergunta de lista exige a lista completa; resposta com preço de um só tamanho sem dizer qual é parcial. Conferir por amostra antes de citar no README. Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
+}

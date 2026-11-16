@@ -1,0 +1,267 @@
+{
+  "n_trechos": 18,
+  "n_perguntas_com_resposta": 24,
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "metricas": {
+    "BM25": {
+      "todas": {
+        "n": 24,
+        "top1": 0.7916666666666666,
+        "top3": 0.7916666666666666,
+        "mrr": 0.8216600529100528
+      },
+      "diretas": {
+        "n": 12,
+        "top1": 1.0,
+        "top3": 1.0,
+        "mrr": 1.0
+      },
+      "parafraseadas": {
+        "n": 12,
+        "top1": 0.5833333333333334,
+        "top3": 0.5833333333333334,
+        "mrr": 0.6433201058201058
+      }
+    },
+    "Embeddings": {
+      "todas": {
+        "n": 24,
+        "top1": 0.5416666666666666,
+        "top3": 0.7916666666666666,
+        "mrr": 0.6876653439153438
+      },
+      "diretas": {
+        "n": 12,
+        "top1": 0.75,
+        "top3": 0.9166666666666666,
+        "mrr": 0.8313492063492064
+      },
+      "parafraseadas": {
+        "n": 12,
+        "top1": 0.3333333333333333,
+        "top3": 0.6666666666666666,
+        "mrr": 0.5439814814814815
+      }
+    },
+    "Híbrida": {
+      "todas": {
+        "n": 24,
+        "top1": 0.6666666666666666,
+        "top3": 0.8333333333333334,
+        "mrr": 0.7730008417508417
+      },
+      "diretas": {
+        "n": 12,
+        "top1": 0.8333333333333334,
+        "top3": 1.0,
+        "mrr": 0.9166666666666666
+      },
+      "parafraseadas": {
+        "n": 12,
+        "top1": 0.5,
+        "top3": 0.6666666666666666,
+        "mrr": 0.6293350168350168
+      }
+    }
+  },
+  "erros": {
+    "BM25": [
+      {
+        "id": 13,
+        "tipo": "parafraseada",
+        "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+        "esperado": "Entradas",
+        "posicao_certa": 7,
+        "primeiro_lugar": "Alergênicos"
+      },
+      {
+        "id": 14,
+        "tipo": "parafraseada",
+        "pergunta": "Sou vegano, o que posso comer aí?",
+        "esperado": "Vegetarianas e veganas",
+        "posicao_certa": 4,
+        "primeiro_lugar": "Entradas"
+      },
+      {
+        "id": 17,
+        "tipo": "parafraseada",
+        "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+        "esperado": "Atraso",
+        "posicao_certa": 5,
+        "primeiro_lugar": "Cancelamento"
+      },
+      {
+        "id": 18,
+        "tipo": "parafraseada",
+        "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+        "esperado": "Contato",
+        "posicao_certa": 18,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 21,
+        "tipo": "parafraseada",
+        "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+        "esperado": "Reembolso",
+        "posicao_certa": 14,
+        "primeiro_lugar": "Formas de pagamento"
+      }
+    ],
+    "Embeddings": [
+      {
+        "id": 4,
+        "tipo": "direta",
+        "pergunta": "Qual é a taxa de entrega?",
+        "esperado": "Entrega",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Prazo de entrega"
+      },
+      {
+        "id": 9,
+        "tipo": "direta",
+        "pergunta": "Quais massas tem no cardápio?",
+        "esperado": "Massas",
+        "posicao_certa": 3,
+        "primeiro_lugar": "Alergênicos"
+      },
+      {
+        "id": 10,
+        "tipo": "direta",
+        "pergunta": "Quais sobremesas vocês servem?",
+        "esperado": "Sobremesas",
+        "posicao_certa": 7,
+        "primeiro_lugar": "Formas de pagamento"
+      },
+      {
+        "id": 13,
+        "tipo": "parafraseada",
+        "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+        "esperado": "Entradas",
+        "posicao_certa": 9,
+        "primeiro_lugar": "Alergênicos"
+      },
+      {
+        "id": 15,
+        "tipo": "parafraseada",
+        "pergunta": "Quanto tempo demora até a pizza chegar na minha casa?",
+        "esperado": "Prazo de entrega",
+        "posicao_certa": 4,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 16,
+        "tipo": "parafraseada",
+        "pergunta": "Quero buscar meu pedido no local, como funciona?",
+        "esperado": "Retirada",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Contato"
+      },
+      {
+        "id": 17,
+        "tipo": "parafraseada",
+        "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+        "esperado": "Atraso",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Reembolso"
+      },
+      {
+        "id": 18,
+        "tipo": "parafraseada",
+        "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+        "esperado": "Contato",
+        "posicao_certa": 6,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 21,
+        "tipo": "parafraseada",
+        "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+        "esperado": "Reembolso",
+        "posicao_certa": 6,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 22,
+        "tipo": "parafraseada",
+        "pergunta": "Quero garantir lugar para o aniversário de 12 pessoas.",
+        "esperado": "Reservas",
+        "posicao_certa": 3,
+        "primeiro_lugar": "Cupons"
+      },
+      {
+        "id": 23,
+        "tipo": "parafraseada",
+        "pergunta": "Dá para pedir uma pizza metade de um sabor e metade de outro?",
+        "esperado": "Pizzas",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Retirada"
+      }
+    ],
+    "Híbrida": [
+      {
+        "id": 9,
+        "tipo": "direta",
+        "pergunta": "Quais massas tem no cardápio?",
+        "esperado": "Massas",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Alergênicos"
+      },
+      {
+        "id": 10,
+        "tipo": "direta",
+        "pergunta": "Quais sobremesas vocês servem?",
+        "esperado": "Sobremesas",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Massas"
+      },
+      {
+        "id": 13,
+        "tipo": "parafraseada",
+        "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+        "esperado": "Entradas",
+        "posicao_certa": 9,
+        "primeiro_lugar": "Alergênicos"
+      },
+      {
+        "id": 14,
+        "tipo": "parafraseada",
+        "pergunta": "Sou vegano, o que posso comer aí?",
+        "esperado": "Vegetarianas e veganas",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Entradas"
+      },
+      {
+        "id": 15,
+        "tipo": "parafraseada",
+        "pergunta": "Quanto tempo demora até a pizza chegar na minha casa?",
+        "esperado": "Prazo de entrega",
+        "posicao_certa": 2,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 17,
+        "tipo": "parafraseada",
+        "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+        "esperado": "Atraso",
+        "posicao_certa": 4,
+        "primeiro_lugar": "Reembolso"
+      },
+      {
+        "id": 18,
+        "tipo": "parafraseada",
+        "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+        "esperado": "Contato",
+        "posicao_certa": 11,
+        "primeiro_lugar": "Retirada"
+      },
+      {
+        "id": 21,
+        "tipo": "parafraseada",
+        "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+        "esperado": "Reembolso",
+        "posicao_certa": 10,
+        "primeiro_lugar": "Formas de pagamento"
+      }
+    ]
+  }
+}

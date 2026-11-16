@@ -1,0 +1,284 @@
+[
+  {
+    "id": 1,
+    "tipo": "direta",
+    "pergunta": "Qual o horário de funcionamento da La Tavola?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Horário de funcionamento"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "direta",
+    "pergunta": "Quais as formas de pagamento aceitas?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Formas de pagamento"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "direta",
+    "pergunta": "Qual o prazo do reembolso?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Reembolso"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "tipo": "direta",
+    "pergunta": "Qual é a taxa de entrega?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Entrega"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "tipo": "direta",
+    "pergunta": "Posso cancelar o pedido depois da confirmação?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Cancelamento"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "tipo": "direta",
+    "pergunta": "Como faço uma reserva de mesa?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Reservas"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "tipo": "direta",
+    "pergunta": "Existe cupom de desconto no primeiro pedido?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Cupons"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "tipo": "direta",
+    "pergunta": "Quais são os tamanhos das pizzas e quanto custa a Margherita?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Pizzas"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "tipo": "direta",
+    "pergunta": "Quais massas tem no cardápio?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Massas"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "tipo": "direta",
+    "pergunta": "Quais sobremesas vocês servem?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Sobremesas"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "tipo": "direta",
+    "pergunta": "Quais bebidas vocês têm e quanto custa o chope?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Bebidas"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "tipo": "direta",
+    "pergunta": "Quais alergênicos o tiramisù contém?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Alergênicos"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "tipo": "parafraseada",
+    "pergunta": "Vocês servem algo para beliscar antes da pizza?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Entradas"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "tipo": "parafraseada",
+    "pergunta": "Sou vegano, o que posso comer aí?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Vegetarianas e veganas"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "tipo": "parafraseada",
+    "pergunta": "Quanto tempo demora até a pizza chegar na minha casa?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Prazo de entrega"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "tipo": "parafraseada",
+    "pergunta": "Quero buscar meu pedido no local, como funciona?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Retirada"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "tipo": "parafraseada",
+    "pergunta": "Meu pedido chegou muito depois do combinado, tenho direito a alguma coisa?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Atraso"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "tipo": "parafraseada",
+    "pergunta": "Qual o canal para falar com a equipe da pizzaria?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Contato"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "tipo": "parafraseada",
+    "pergunta": "Até que horas dá para pedir no sábado à noite?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Horário de funcionamento"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "tipo": "parafraseada",
+    "pergunta": "Posso pagar com o VR do meu trabalho?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Formas de pagamento"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "tipo": "parafraseada",
+    "pergunta": "Recebi a pizza errada, como faço para ter meu dinheiro de volta?",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Reembolso"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "tipo": "parafraseada",
+    "pergunta": "Quero garantir lugar para o aniversário de 12 pessoas.",
+    "esperadas": [
+      {
+        "arquivo": "faq.md",
+        "secao": "Reservas"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "tipo": "parafraseada",
+    "pergunta": "Dá para pedir uma pizza metade de um sabor e metade de outro?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Pizzas"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "tipo": "parafraseada",
+    "pergunta": "Sou intolerante a lactose, o que preciso saber?",
+    "esperadas": [
+      {
+        "arquivo": "cardapio.md",
+        "secao": "Alergênicos"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "tipo": "sem_resposta",
+    "pergunta": "Vocês têm estacionamento próprio?",
+    "esperadas": []
+  },
+  {
+    "id": 26,
+    "tipo": "sem_resposta",
+    "pergunta": "Qual é a receita exata da massa, com as quantidades?",
+    "esperadas": []
+  },
+  {
+    "id": 27,
+    "tipo": "sem_resposta",
+    "pergunta": "Posso levar meu cachorro para o salão?",
+    "esperadas": []
+  }
+]

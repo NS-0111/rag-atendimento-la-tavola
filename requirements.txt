@@ -1,0 +1,9 @@
+# Versões que instalaram e rodaram na API local (Arch Linux, Python 3.12, CPU).
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0
+transformers==5.23.0
+sentence-transformers==6.3.0
+numpy==2.5.4
+fastapi==0.163.1
+uvicorn==0.54.0
+pydantic==2.14.3
