@@ -454,5 +454,5 @@
       "causa_do_erro": "—"
     }
   ],
-  "nota": "Avaliação feita pelo Claude com o mesmo critério do v1 (comparando com data/*.md). Conferir por amostra antes de citar no README. Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
+  "nota": "Avaliação feita pelo Claude com o mesmo critério do v1 (comparando com data/*.md). Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
 }
