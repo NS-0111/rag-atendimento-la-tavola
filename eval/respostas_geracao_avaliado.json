@@ -680,5 +680,5 @@
       "causa_do_erro": "LLM: deveria recusar; inventou uma regra sobre cachorro"
     }
   ],
-  "nota": "Avaliação feita pelo Claude em duas passadas, comparando cada resposta com data/cardapio.md e data/faq.md. Critério: pergunta de lista exige a lista completa; resposta com preço de um só tamanho sem dizer qual é parcial. Conferir por amostra antes de citar no README. Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
+  "nota": "Avaliação feita pelo Claude em duas passadas, comparando cada resposta com data/cardapio.md e data/faq.md. Critério: pergunta de lista exige a lista completa; resposta com preço de um só tamanho sem dizer qual é parcial. Casos-chave (#2, #8, #14, #15, #25) reconferidos contra os documentos em uma segunda passada."
 }
