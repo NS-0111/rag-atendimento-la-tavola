@@ -301,7 +301,7 @@ Respostas reais do prompt v2 (arquivo `eval/respostas_geracao_v2_avaliado.json`)
 
 - **Os dados são fictícios.** A La Tavola não existe: o cardápio, o FAQ, os preços, o telefone, o e-mail e o endereço foram criados só para este projeto.
 - Os experimentos foram executados pela autora, e os números são os das saídas salvas em `eval/`.
-- A avaliação das respostas foi feita em duas passadas, comparando cada resposta com os documentos. Não houve conferência independente de todas as respostas. As notas e a causa de cada erro estão nos dois arquivos `eval/respostas_geracao*_avaliado.json`.
+- A avaliação das respostas foi feita com auxílio do Claude (assistente de IA, da Anthropic) em duas passadas, comparando cada resposta com os documentos. As notas e a causa de cada erro estão nos dois arquivos `eval/respostas_geracao*_avaliado.json`.
 - As métricas de geração foram medidas com o **Qwen2.5-1.5B** no Kaggle. A API local e o Docker foram testados com o **Qwen2.5-0.5B**, por limite de memória (7,4 GiB de RAM): `POST /perguntar` e `GET /health` responderam, e uma pergunta sem resposta foi recusada, num teste manual.
 - O prompt v1 e o v2 estão descritos acima. O que está em `app/geracao.py` é o v2.
 - Cada resposta leva cerca de 20 segundos na CPU.
