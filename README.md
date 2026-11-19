@@ -12,7 +12,7 @@
 [![Dados fictícios](https://img.shields.io/badge/Dados-fict%C3%ADcios-orange)](#notas-importantes)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-lightgrey)](#licenças-e-créditos)
 
-[Como usar](#como-usar) · [Resultados da busca](#resultados-da-busca) · [Resultados da geração](#resultados-da-geração) · [Análise de erros](#análise-de-erros) · [Limitações](#limitações)
+[Como usar](#como-usar) · [Resultados da busca](#resultados-da-busca) · [Resultados da geração](#resultados-da-geração) · [Análise de erros](#análise-de-erros) · [Agente](#agente-com-tool-calling) · [Limitações](#limitações)
 
 </div>
 
@@ -29,6 +29,7 @@
 - [Resultados da busca](#resultados-da-busca)
 - [Resultados da geração](#resultados-da-geração)
 - [Análise de erros](#análise-de-erros)
+- [Agente com tool calling](#agente-com-tool-calling)
 - [Exemplos de uso](#exemplos-de-uso)
 - [Notas importantes](#notas-importantes)
 - [Limitações](#limitações)
@@ -42,6 +43,8 @@
 Um LLM sozinho não conhece o cardápio nem as regras de um restaurante e, se perguntado, inventa. Este projeto usa **RAG** (*Retrieval-Augmented Generation*, geração aumentada por busca): primeiro procura os trechos dos documentos relacionados à pergunta e só então pede ao LLM que responda usando apenas esses trechos. É como uma prova com consulta.
 
 As perguntas que ele responde são duas: qual busca encontra melhor a seção certa, entre **BM25** (palavras, ML clássico), **embeddings** (significado, deep learning) e uma **busca híbrida**; e se um LLM pequeno consegue responder só com o que está escrito e **recusar o que não está**.
+
+Uma segunda etapa transformou o assistente em um **agente com *tool calling***: o LLM passa a escolher entre buscar nos documentos, calcular o valor de um pedido e verificar o horário, e quatro versões do prompt foram comparadas em 20 casos de teste. Os detalhes estão em [Agente com tool calling](#agente-com-tool-calling).
 
 ### Resultado em uma olhada
 
@@ -71,6 +74,7 @@ As perguntas que ele responde são duas: qual busca encontra melhor a seção ce
 - ✅ **API FastAPI** com `POST /perguntar` e `GET /health`, com os modelos carregados uma vez
 - ✅ Empacotado com **Docker**
 - ✅ Respostas avaliadas em **três níveis**, com a causa de cada erro (busca ou LLM)
+- ✅ **Agente com tool calling** (busca, cálculo de pedido e horário), com quatro versões de prompt avaliadas em casos de teste
 - ✅ Versões das bibliotecas fixadas no `requirements.txt`
 
 ---
@@ -157,6 +161,13 @@ rag-atendimento-la-tavola/
 │   ├── main.py                              # API FastAPI (/perguntar e /health)
 │   ├── busca.py                             # BM25, embeddings e busca híbrida
 │   └── geracao.py                           # LLM e prompt
+├── agente/
+│   ├── tools.py                             # Ferramentas (busca, pedido, horário) e seus schemas
+│   ├── prompts.py                           # Quatro versões do prompt de sistema (v1 a v4)
+│   ├── providers.py                         # Adaptadores Claude, OpenAI/Ollama e Gemini
+│   ├── agente.py                            # Loop do agente
+│   ├── eval_agente.py                       # Avaliação por modelo e por prompt
+│   └── README.md                            # Detalhes e resultados do agente
 ├── data/
 │   ├── cardapio.md                          # 7 seções (restaurante fictício)
 │   └── faq.md                               # 11 seções
@@ -164,8 +175,11 @@ rag-atendimento-la-tavola/
 │   ├── perguntas.json                       # 27 perguntas: 12 diretas, 12 parafraseadas, 3 sem resposta
 │   ├── resultados_busca.json                # Métricas e erros da busca
 │   ├── respostas_geracao_avaliado.json      # Respostas com o prompt v1 e a avaliação
-│   └── respostas_geracao_v2_avaliado.json   # Respostas com o prompt v2 e a avaliação
-├── tests/                                   # Testes da busca e da API
+│   ├── respostas_geracao_v2_avaliado.json   # Respostas com o prompt v2 e a avaliação
+│   ├── casos_agente.json                    # 10 casos do agente (usados no desenvolvimento)
+│   ├── casos_agente_heldout.json            # 10 casos reservados, não usados para ajustar prompts
+│   └── resultados_agente*.json              # Saídas completas da avaliação do agente
+├── tests/                                   # Testes da busca, da API e do agente (sem chamar API)
 ├── busca_e_avaliacao.py                     # Trechos, BM25, embeddings, híbrida e métricas (em células)
 ├── passo2_geracao.py                        # Geração com o LLM (em células)
 ├── passo2b_prompt_v2.py                     # Segundo prompt, para a recusa
@@ -193,6 +207,8 @@ rag-atendimento-la-tavola/
 | **Pydantic** (2.14.3) | Validação da pergunta e da resposta |
 | **Docker** | Empacotamento da API |
 | **pytest** e **httpx** | Testes |
+| **Ollama** e **Qwen2.5-3B-Instruct** | Modelo local usado na avaliação do agente (via API compatível com a da OpenAI) |
+| SDKs da **Anthropic**, **OpenAI** e **Google GenAI** | Adaptadores do agente para Claude, GPT e Gemini (só o formato OpenAI foi executado) |
 | **Kaggle Notebooks** | Ambiente dos experimentos de busca e geração |
 | **Git e GitHub** | Versionamento e publicação do código |
 
@@ -280,6 +296,35 @@ Em 4 das 24 perguntas a seção certa ficou **fora dos 3 primeiros** na busca h�
 
 ---
 
+## Agente com tool calling
+
+Segunda etapa do projeto: em vez de sempre buscar e responder, o LLM **decide** qual *ferramenta* usar. Esse padrão se chama *tool calling* (chamada de ferramentas): o modelo pede uma função, o código a executa e devolve o resultado, e o modelo escreve a resposta.
+
+| Ferramenta | O que faz |
+|---|---|
+| `buscar_informacoes` | Usa a busca híbrida do RAG sobre o cardápio e o FAQ |
+| `calcular_pedido` | Subtotal, taxa de entrega, pedido mínimo e desconto de retirada, seguindo as regras do FAQ |
+| `verificar_horario` | Diz se a pizzaria funciona em um dia e hora |
+
+Quatro versões do prompt de sistema foram comparadas: **v1** simples; **v2** estruturado, com tags XML e regras; **v3**, que corrige a recusa excessiva do v2; e **v4**, que só recusa depois de buscar e traz exemplos. Os 20 casos de teste se dividem em 10 usados durante o desenvolvimento e 10 **reservados**, escritos depois de os prompts estarem prontos.
+
+| Prompt (Qwen2.5-3B, Ollama) | Passou (20 casos) | Recusa indevida (18 perguntas com resposta) |
+|---|:---:|:---:|
+| v1 | **15** / 20 | 0 |
+| v2 | 7 / 20 | 9 |
+| v3 | 12 / 20 | 3 |
+| v4 | 13 / 20 | 3 |
+
+> Temperatura 0. "Recusa indevida" é dizer "Não encontrei" quando a resposta está nos documentos. Com 20 casos, a diferença de um caso equivale a 5 pontos percentuais, então os números mostram uma tendência e não uma medida exata.
+
+- O **v2 foi o pior**: mais regras no prompt não ajudaram o modelo pequeno, que passou a recusar até perguntas respondíveis.
+- **v3 e v4 reduziram bastante a recusa excessiva.**
+- **v1 e v4 empataram no conjunto reservado** (8 de 10), e a diferença total entre os dois é de dois casos. O v1 nunca recusa, mas durante o desenvolvimento inventou uma resposta sobre algo que não está nos documentos.
+
+Tipos de falha, análise completa, limitações e como rodar (inclusive sem API paga, com Ollama) estão em [`agente/README.md`](agente/README.md).
+
+---
+
 ## Exemplos de uso
 
 Respostas reais do prompt v2 (arquivo `eval/respostas_geracao_v2_avaliado.json`):
@@ -305,6 +350,8 @@ Respostas reais do prompt v2 (arquivo `eval/respostas_geracao_v2_avaliado.json`)
 - As métricas de geração foram medidas com o **Qwen2.5-1.5B** no Kaggle. A API local e o Docker foram testados com o **Qwen2.5-0.5B**, por limite de memória (7,4 GiB de RAM): `POST /perguntar` e `GET /health` responderam, e uma pergunta sem resposta foi recusada, num teste manual.
 - O prompt v1 e o v2 estão descritos acima. O que está em `app/geracao.py` é o v2.
 - Cada resposta leva cerca de 20 segundos na CPU.
+- **O agente foi avaliado só com o Qwen2.5-3B local (Ollama).** Os adaptadores para Claude e Gemini existem, mas não foram executados, e nenhuma comparação entre modelos foi feita.
+- Os casos de teste do agente foram escritos com auxílio do Claude (assistente de IA, da Anthropic). Os números estão em `eval/resultados_agente*.json`.
 
 ---
 
@@ -316,6 +363,7 @@ Respostas reais do prompt v2 (arquivo `eval/respostas_geracao_v2_avaliado.json`)
 - Execução única, sem repetições nem busca de parâmetros. Só um modelo de embeddings e um LLM foram testados.
 - Os embeddings dos trechos são calculados quando a API sobe. Não há banco de dados vetorial (PostgreSQL com pgvector não foi feito).
 - Cada resposta leva cerca de 20 segundos na CPU, o que seria lento para um uso real.
+- Agente: 20 casos e um único modelo pequeno, sem repetições. A ferramenta de cálculo não cobre alguns itens do cardápio (Funghi, Legumes Grelhados, Salada Caprese, pizza doce, vinho e meio a meio).
 
 ---
 
