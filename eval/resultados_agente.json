@@ -1,0 +1,1411 @@
+[
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v1",
+    "casos": [
+      {
+        "id": 1,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 63.54,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O prazo para reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil. Se o pedido vier errado, com problema ou não for entregue, você tem direito a reembolso total. Avise em até 24 horas, com uma foto quando houver problema no produto. Se a entrega passar de 30 minutos além da estimativa, você ganha um cupom de R$ 15 para o próximo pedido. Se o atraso passar de 60 minutos, você pode cancelar o pedido e receber o reembolso integral.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Qual o prazo do reembolso?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "faq.md - Reembolso",
+                  "texto": "Se o pedido vier errado, com problema ou não for entregue, você tem direito a reembolso total.\nAvise em até 24 horas, com uma foto quando houver problema no produto.\nO prazo do reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil."
+                },
+                {
+                  "fonte": "faq.md - Prazo de entrega",
+                  "texto": "O tempo normal de entrega é de 40 a 60 minutos.\nÀs sextas e sábados à noite, o tempo pode chegar a 80 minutos.\nVocê recebe a estimativa no momento em que o pedido é confirmado."
+                },
+                {
+                  "fonte": "faq.md - Atraso",
+                  "texto": "Se a entrega passar de 30 minutos além da estimativa, você ganha um cupom de R$ 15 para o próximo pedido.\nSe o atraso passar de 60 minutos, você pode cancelar o pedido e receber o reembolso integral."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 15.45,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Sim, a La Tavola está aberto na sexta-feira às 23:30. Nosso horário de funcionamento é das 18h às 00h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "sexta",
+              "hora": "23:30"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 00h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 10.38,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Desculpe, a La Tavola está fechado em segunda-feira. Podemos agendar para outra semana.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "segunda"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "fechado às segundas"
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 26.84,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O seu pedido de 1 pizza Margherita grande com borda de catupiry e 2 refrigerantes, com entrega a 4 km, vai custar R$ 98,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Margherita",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "nome": "refrigerante",
+                  "quantidade": 2
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 4
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 1,
+                  "valor": 68
+                },
+                {
+                  "item": "refrigerante",
+                  "quantidade": 2,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 84.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 98.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 22.1,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total para retirar 2 pizzas Calabresa médias e 1 chope é R$ 98.80.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Calabresa",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "chope",
+                  "quantidade": 1
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Calabresa",
+                  "quantidade": 2,
+                  "valor": 92
+                },
+                {
+                  "item": "chope",
+                  "quantidade": 1,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 108.0,
+              "taxa_entrega": 0.0,
+              "desconto": 9.2,
+              "total": 98.8
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 54.93,
+        "passos": 2,
+        "tentativas": 2,
+        "resposta": "O total do seu pedido para entrega a 2 km é R$ 194,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "Prosciutto e Rúcula grande",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "tiramisù",
+                  "quantidade": 1,
+                  "tamanho": ""
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 2
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "valor": 90
+                },
+                {
+                  "item": "Prosciutto e Rúcula grande",
+                  "quantidade": 1,
+                  "valor": 78
+                },
+                {
+                  "item": "tiramisù",
+                  "quantidade": 1,
+                  "valor": 26
+                }
+              ],
+              "subtotal": 194.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 194.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 15.68,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Desculpe, parece que faltou algum argumento para calcular o pedido. Vou precisar do nome do item e a quantidade. Você pode me dizer qual é o nome da água sem gás e quantas você quer?",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 2
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 16.36,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Desculpe, há um erro. Preciso dos itens do seu pedido para calcular o valor. Você pode me dizer quais itens você gostaria de pedir? Por exemplo, você pode pedir uma Margherita, um refrigerante ou um Tiramisù.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "distancia_km": 8,
+              "modo": "entrega"
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 80.97,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Como vegetariano, você pode escolher entre as seguintes opções:\n\n- Entradas: Bruschetta de tomate e manjericão, Focaccia de alecrim com azeite, Arancini (bolinho de arroz recheado com queijo), Carpaccio de carne com rúcula e lascas de parmesão, Burrata com tomate cereja e pesto.\n- Massas: Spaghetti alla carbonara, Fettuccine ao molho alfredo, Lasanha à bolonhesa, Gnocchi de batata ao sugo, Ravioli de queijo com molho de tomate.\n- Pizzas: Você pode escolher entre as pizzas tradicionais, pizzas especiais ou meio a meio. As pizzas especiais incluem Prosciutto e Rúcula, Burrata e Tomate Seco, Trufada (cogumelos e azeite trufado). As bordas recheadas de catupiry ou cheddar também estão disponíveis.\n\nLembre-se de que algumas opções podem não ser veganas, como o Carpaccio de carne com rúcula e lascas de parmesão. Se você tiver mais perguntas ou precisar de mais detalhes, fique à vontade para perguntar.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "O que posso comer como vegetariano na La Tavola?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "cardapio.md - Entradas",
+                  "texto": "Bruschetta de tomate e manjericão: R$ 28.\nFocaccia de alecrim com azeite: R$ 24.\nArancini (bolinho de arroz recheado com queijo): R$ 32.\nCarpaccio de carne com rúcula e lascas de parmesão: R$ 46.\nBurrata com tomate cereja e pesto: R$ 52."
+                },
+                {
+                  "fonte": "cardapio.md - Pizzas",
+                  "texto": "Todas as pizzas usam massa de fermentação natural de 48 horas e são assadas em forno a lenha.\nTamanhos: média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias).\nPizzas tradicionais (preço média / grande / gigante):\n- Margherita: R$ 44 / R$ 56 / R$ 74.\n- Calabresa: R$ 46 / R$ 58 / R$ 78.\n- Napolitana: R$ 48 / R$ 60 / R$ 80.\n- Portuguesa: R$ 52 / R$ 64 / R$ 86.\n- Quatro Queijos: R$ 54 / R$ 68 / R$ 90.\nPizzas especiais (preço média / grande / gigante):\n- Prosciutto e Rúcula: R$ 62 / R$ 78 / R$ 104.\n- Burrata e Tomate Seco: R$ 66 / R$ 82 / R$ 108.\n- Trufada (cogumelos e azeite trufado): R$ 68 / R$ 84 / R$ 112.\nÉ possível pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.\nBorda recheada de catupiry ou cheddar: R$ 12 a mais, nos tamanhos grande e gigante."
+                },
+                {
+                  "fonte": "cardapio.md - Massas",
+                  "texto": "Todas as massas são frescas, feitas no dia, e servem uma pessoa.\nSpaghetti alla carbonara: R$ 58.\nFettuccine ao molho alfredo: R$ 54.\nLasanha à bolonhesa: R$ 56.\nGnocchi de batata ao sugo: R$ 50.\nRavioli de queijo com molho de tomate: R$ 57."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 7.68,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não, a La Tavola não possui estacionamento próprio. Recomendamos que os clientes usem os estacionamentos públicos próximos à pizzaria. Como posso ajudar mais?",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v2",
+    "casos": [
+      {
+        "id": 1,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 32.74,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 2,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 13.84,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Sim, estamos abertos na sexta-feira às 23:30. Funcionamos das 18h às 00h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "sexta",
+              "hora": "23:30"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 00h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 10.49,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não abrimos na segunda-feira. Nosso horário de funcionamento é das terças às sextas-feiras.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "segunda"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "fechado às segundas"
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 22.96,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O seu pedido ficará no valor de R$ 98,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "distancia_km": 4,
+              "modo": "entrega",
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Margherita",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "nome": "refrigerante",
+                  "quantidade": 2
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 1,
+                  "valor": 68
+                },
+                {
+                  "item": "refrigerante",
+                  "quantidade": 2,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 84.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 98.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 16.9,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Calabresa",
+                  "quantidade": 2
+                },
+                {
+                  "nome": "Chope",
+                  "quantidade": 1
+                }
+              ]
+            },
+            "resultado": {
+              "erro": "Informe o tamanho (media, grande ou gigante) da pizza Calabresa."
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 28.04,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "Prosciutto e Rúcula",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "tiramisù",
+                  "quantidade": 1,
+                  "tamanho": null
+                }
+              ]
+            },
+            "resultado": {
+              "erro": "Informe a distância da entrega em km."
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 13.26,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento. Preciso saber quais itens você deseja pedir.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 2
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 10.73,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 8
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.31,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 10,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.29,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v3",
+    "casos": [
+      {
+        "id": 1,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 30.44,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 2,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.12,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Sim, estamos abertos na sexta-feira às 23:30. Nosso horário é das 18h às 00h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "sexta",
+              "hora": "23:30"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 00h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 8.58,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Nosso restaurante está fechado em segunda-feira.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "segunda"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "fechado às segundas"
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 23.6,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O seu pedido ficará no valor de R$ 98,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Margherita",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "nome": "refrigerante",
+                  "quantidade": 2
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 4
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 1,
+                  "valor": 68
+                },
+                {
+                  "item": "refrigerante",
+                  "quantidade": 2,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 84.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 98.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 28.49,
+        "passos": 3,
+        "tentativas": 1,
+        "resposta": "O total de seu pedido é R$ 98,80.",
+        "ferramentas": [
+          "calcular_pedido",
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Calabresa",
+                  "quantidade": 2
+                },
+                {
+                  "nome": "Chope",
+                  "quantidade": 1
+                }
+              ]
+            },
+            "resultado": {
+              "erro": "Informe o tamanho (media, grande ou gigante) da pizza Calabresa."
+            }
+          },
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "nome": "Calabresa",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "Chope",
+                  "quantidade": 1
+                }
+              ],
+              "modo": "retirada"
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Calabresa",
+                  "quantidade": 2,
+                  "valor": 92
+                },
+                {
+                  "item": "Chope",
+                  "quantidade": 1,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 108.0,
+              "taxa_entrega": 0.0,
+              "desconto": 9.2,
+              "total": 98.8
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 37.32,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 194,00. Não há desconto ou taxa de entrega aplicados.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 2,
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "Prosciutto e Rúcula",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "tiramisù",
+                  "quantidade": 1,
+                  "tamanho": null
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "valor": 90
+                },
+                {
+                  "item": "Prosciutto e Rúcula",
+                  "quantidade": 1,
+                  "valor": 78
+                },
+                {
+                  "item": "tiramisù",
+                  "quantidade": 1,
+                  "valor": 26
+                }
+              ],
+              "subtotal": 194.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 194.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 31.47,
+        "passos": 3,
+        "tentativas": 1,
+        "resposta": "Desculpe, mas para entrega é necessário um pedido com pelo menos R$ 40. Você pode adicionar mais itens ao seu pedido?",
+        "ferramentas": [
+          "calcular_pedido",
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 2
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          },
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "distancia_km": 2,
+              "modo": "entrega",
+              "itens": [
+                {
+                  "nome": "água sem gás",
+                  "quantidade": 1
+                }
+              ]
+            },
+            "resultado": {
+              "erro": "Pedido mínimo para entrega é R$ 40 (subtotal atual: R$ 6)."
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 13.79,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não consegui calcular o pedido sem informar os itens que você deseja pedir. Por favor, informe os itens e eu calcularei o valor.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 8
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.47,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 10,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.4,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v4",
+    "casos": [
+      {
+        "id": 1,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 69.7,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O prazo para reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil. Se o pedido vier errado, com problema ou não for entregue, você tem direito a reembolso total. Avise em até 24 horas, com uma foto quando houver problema no produto.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "prazo reembolso"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "faq.md - Reembolso",
+                  "texto": "Se o pedido vier errado, com problema ou não for entregue, você tem direito a reembolso total.\nAvise em até 24 horas, com uma foto quando houver problema no produto.\nO prazo do reembolso é de até 5 dias úteis no mesmo meio de pagamento; no Pix, até 1 dia útil."
+                },
+                {
+                  "fonte": "faq.md - Prazo de entrega",
+                  "texto": "O tempo normal de entrega é de 40 a 60 minutos.\nÀs sextas e sábados à noite, o tempo pode chegar a 80 minutos.\nVocê recebe a estimativa no momento em que o pedido é confirmado."
+                },
+                {
+                  "fonte": "faq.md - Atraso",
+                  "texto": "Se a entrega passar de 30 minutos além da estimativa, você ganha um cupom de R$ 15 para o próximo pedido.\nSe o atraso passar de 60 minutos, você pode cancelar o pedido e receber o reembolso integral."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 15.19,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Sim, estamos abertos na sexta-feira às 23:30. Nosso horário é das 18h às 00h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "sexta",
+              "hora": "23:30"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 00h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 8.98,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Nosso restaurante está fechado em segunda-feira.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "segunda"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "fechado às segundas"
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 23.75,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O seu pedido ficará em R$ 98.00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Margherita",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "nome": "refrigerante",
+                  "quantidade": 2
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 4
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 1,
+                  "valor": 68
+                },
+                {
+                  "item": "refrigerante",
+                  "quantidade": 2,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 84.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 98.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 21.11,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total para a retirada desses itens é R$ 98,80.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "nome": "Calabresa",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "chope",
+                  "quantidade": 1
+                }
+              ],
+              "modo": "retirada"
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Calabresa",
+                  "quantidade": 2,
+                  "valor": 92
+                },
+                {
+                  "item": "chope",
+                  "quantidade": 1,
+                  "valor": 16
+                }
+              ],
+              "subtotal": 108.0,
+              "taxa_entrega": 0.0,
+              "desconto": 9.2,
+              "total": 98.8
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 36.44,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 220,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "Prosciutto e Rúcula",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "tiramisù",
+                  "quantidade": 1,
+                  "tamanho": ""
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 2
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Quatro Queijos gigante",
+                  "quantidade": 1,
+                  "valor": 90
+                },
+                {
+                  "item": "Prosciutto e Rúcula",
+                  "quantidade": 1,
+                  "valor": 104
+                },
+                {
+                  "item": "tiramisù",
+                  "quantidade": 1,
+                  "valor": 26
+                }
+              ],
+              "subtotal": 220.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 220.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 20.17,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não consegui processar seu pedido. Por favor, informe os detalhes novamente.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "água sem gás",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                },
+                {
+                  "distancia_km": 2
+                }
+              ],
+              "modo": "entrega"
+            },
+            "resultado": {
+              "erro": "'itens' deve ser uma lista de objetos, cada um com 'nome' e 'quantidade'. Os campos 'modo' e 'distancia_km' ficam fora da lista de itens."
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 11.23,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 8
+            },
+            "resultado": {
+              "erro": "Faltou o argumento obrigatório: itens. Chame a ferramenta de novo com todos os argumentos obrigatórios."
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.41,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 10,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.36,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  }
+]

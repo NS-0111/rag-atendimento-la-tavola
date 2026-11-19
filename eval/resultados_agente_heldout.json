@@ -1,0 +1,1400 @@
+[
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v1",
+    "casos": [
+      {
+        "id": 101,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 20.94,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Vale-refeição é aceito apenas no salão e na retirada, não na entrega.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Vale-refeição é aceito na entrega?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "faq.md - Formas de pagamento",
+                  "texto": "Aceitamos cartão de crédito e débito (Visa, Mastercard e Elo), Pix e dinheiro.\nPara pagar em dinheiro na entrega, avise o valor para o troco.\nVale-refeição (Alelo, Sodexo e VR) é aceito apenas no salão e na retirada, não na entrega."
+                },
+                {
+                  "fonte": "faq.md - Entrega",
+                  "texto": "Entregamos em um raio de até 6 km da pizzaria.\nTaxa de entrega: R$ 8 até 3 km e R$ 14 de 3 a 6 km.\nPedidos acima de R$ 120 com entrega de até 3 km não pagam taxa.\nO pedido mínimo para entrega é de R$ 40.\nOs pedidos podem ser feitos pelo WhatsApp ou pelo site."
+                },
+                {
+                  "fonte": "faq.md - Prazo de entrega",
+                  "texto": "O tempo normal de entrega é de 40 a 60 minutos.\nÀs sextas e sábados à noite, o tempo pode chegar a 80 minutos.\nVocê recebe a estimativa no momento em que o pedido é confirmado."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 9.98,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Sim, você pode cancelar o pedido após confirmá-lo. No entanto, geralmente, a La Tavola não permite cancelamentos após o recebimento do pedido. É sempre melhor confirmar o pedido com antecedência para evitar qualquer problema. Você gostaria de fazer o pedido agora mesmo?",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 103,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 62.7,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Infelizmente, não temos uma opção sem glúten no cardápio atual. A cozinha manipula farinha de trigo e há risco de contaminação cruzada. Se você tiver alguma alergia específica, é melhor informar ao atendimento antes de fazer o pedido. Existem algumas opções sem glúten no cardápio, como o Carpaccio de carne com rúcula e lascas de parmesão, que custa R$ 46, e o Burrata com tomate cereja e pesto, que custa R$ 52. Além disso, alguns itens veganos também não contêm leite. Por favor, informe ao atendimento se você tiver alguma alergia ou preferência especial.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Tem alguma opção sem glúten?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "cardapio.md - Alergênicos",
+                  "texto": "Massas e pizzas contêm glúten. Queijos e molhos cremosos contêm lactose.\nTiramisù: contém glúten, leite e ovos. Cannoli: contém glúten, leite, ovos e pistache.\nGelato de pistache e a pizza Trufada podem conter traços de oleaginosas (castanhas).\nNão há opção sem glúten: a cozinha manipula farinha de trigo e há risco de contaminação cruzada.\nPara quem evita lactose, os itens veganos (V) não levam leite.\nInforme qualquer alergia ao atendimento antes de fazer o pedido."
+                },
+                {
+                  "fonte": "cardapio.md - Entradas",
+                  "texto": "Bruschetta de tomate e manjericão: R$ 28.\nFocaccia de alecrim com azeite: R$ 24.\nArancini (bolinho de arroz recheado com queijo): R$ 32.\nCarpaccio de carne com rúcula e lascas de parmesão: R$ 46.\nBurrata com tomate cereja e pesto: R$ 52."
+                },
+                {
+                  "fonte": "cardapio.md - Pizzas",
+                  "texto": "Todas as pizzas usam massa de fermentação natural de 48 horas e são assadas em forno a lenha.\nTamanhos: média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias).\nPizzas tradicionais (preço média / grande / gigante):\n- Margherita: R$ 44 / R$ 56 / R$ 74.\n- Calabresa: R$ 46 / R$ 58 / R$ 78.\n- Napolitana: R$ 48 / R$ 60 / R$ 80.\n- Portuguesa: R$ 52 / R$ 64 / R$ 86.\n- Quatro Queijos: R$ 54 / R$ 68 / R$ 90.\nPizzas especiais (preço média / grande / gigante):\n- Prosciutto e Rúcula: R$ 62 / R$ 78 / R$ 104.\n- Burrata e Tomate Seco: R$ 66 / R$ 82 / R$ 108.\n- Trufada (cogumelos e azeite trufado): R$ 68 / R$ 84 / R$ 112.\nÉ possível pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.\nBorda recheada de catupiry ou cheddar: R$ 12 a mais, nos tamanhos grande e gigante."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 104,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.46,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não, a La Tavola não está aberta no domingo às 22:30. Estamos abertos das 12h às 22h no domingo.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "domingo",
+              "hora": "22:30"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "das 12h às 22h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 105,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 12.48,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "A pizzaria La Tavola abre na quarta-feira às 18:00. O horário de funcionamento é das 18h às 23h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "quarta"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 23h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 106,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 21.07,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Seu pedido de 1 pizza Portuguesa gigante e 2 sucos ficará no valor de R$ 102,60.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Portuguesa gigante",
+                  "quantidade": 1
+                },
+                {
+                  "nome": "suco",
+                  "quantidade": 2
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Portuguesa gigante",
+                  "quantidade": 1,
+                  "valor": 86
+                },
+                {
+                  "item": "suco",
+                  "quantidade": 2,
+                  "valor": 28
+                }
+              ],
+              "subtotal": 114.0,
+              "taxa_entrega": 0.0,
+              "desconto": 11.4,
+              "total": 102.6
+            }
+          }
+        ]
+      },
+      {
+        "id": 107,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 24.8,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é de R$ 158,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Margherita",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "borda": false,
+                  "nome": "Lasanha",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 5
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 2,
+                  "valor": 88
+                },
+                {
+                  "item": "Lasanha",
+                  "quantidade": 1,
+                  "valor": 56
+                }
+              ],
+              "subtotal": 144.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 158.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 108,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 32.65,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido, incluindo entrega a 3 km, é de R$ 164,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "distancia_km": 3,
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Trufada",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "Napolitana",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "gelato",
+                  "quantidade": 1,
+                  "tamanho": null
+                }
+              ],
+              "modo": "entrega"
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Trufada",
+                  "quantidade": 1,
+                  "valor": 84
+                },
+                {
+                  "item": "Napolitana",
+                  "quantidade": 1,
+                  "valor": 60
+                },
+                {
+                  "item": "gelato",
+                  "quantidade": 1,
+                  "valor": 20
+                }
+              ],
+              "subtotal": 164.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 164.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 109,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 24.3,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Desculpe, a borda recheada só existe nos tamanhos grande e gigante. Você poderia escolher um tamanho diferente para a borda de cheddar? Ou seria melhor eu calcular o valor da pizza Calabresa média sem a borda recheada?",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Calabresa",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "Cheddar",
+                  "quantidade": 1
+                }
+              ],
+              "modo": "retirada"
+            },
+            "resultado": {
+              "erro": "Borda recheada só existe nos tamanhos grande e gigante."
+            }
+          }
+        ]
+      },
+      {
+        "id": 110,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 117.62,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Sim, a La Tavola oferece um cardápio infantil com opções de entrada, pizzas e massas adequadas para crianças. Aqui estão alguns exemplos:\n\n- **Bruschetta de tomate e manjericão**: R$ 28\n- **Focaccia de alecrim com azeite**: R$ 24\n- **Arancini (bolinho de arroz recheado com queijo)**: R$ 32\n- **Carpaccio de carne com rúcula e lascas de parmesão**: R$ 46\n- **Burrata com tomate cereja e pesto**: R$ 52\n\nPara pizzas, temos opções como:\n\n- **Margherita**: R$ 44 (média), R$ 56 (grande), R$ 74 (gigante)\n- **Calabresa**: R$ 46 (média), R$ 58 (grande), R$ 78 (gigante)\n- **Napolitana**: R$ 48 (média), R$ 60 (grande), R$ 80 (gigante)\n- **Portuguesa**: R$ 52 (média), R$ 64 (grande), R$ 86 (gigante)\n- **Quatro Queijos**: R$ 54 (média), R$ 68 (grande), R$ 90 (gigante)\n\nTambém temos opções de bordas recheadas, como catupiry ou cheddar, que custam R$ 12 a mais nos tamanhos grande e gigante.\n\nPara massas, temos:\n\n- **Spaghetti alla carbonara**: R$ 58\n- **Fettuccine ao molho alfredo**: R$ 54\n- **Lasanha à bolonhesa**: R$ 56\n- **Gnocchi de batata ao sugo**: R$ 50\n- **Ravioli de queijo com molho de tomate**: R$ 57\n\nEstas opções foram projetadas para atender a necessidades de crianças e podem ser pedidas junto com bebidas e sobremesas conforme o seu pedido.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Vocês têm cardápio infantil?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "cardapio.md - Entradas",
+                  "texto": "Bruschetta de tomate e manjericão: R$ 28.\nFocaccia de alecrim com azeite: R$ 24.\nArancini (bolinho de arroz recheado com queijo): R$ 32.\nCarpaccio de carne com rúcula e lascas de parmesão: R$ 46.\nBurrata com tomate cereja e pesto: R$ 52."
+                },
+                {
+                  "fonte": "cardapio.md - Pizzas",
+                  "texto": "Todas as pizzas usam massa de fermentação natural de 48 horas e são assadas em forno a lenha.\nTamanhos: média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias).\nPizzas tradicionais (preço média / grande / gigante):\n- Margherita: R$ 44 / R$ 56 / R$ 74.\n- Calabresa: R$ 46 / R$ 58 / R$ 78.\n- Napolitana: R$ 48 / R$ 60 / R$ 80.\n- Portuguesa: R$ 52 / R$ 64 / R$ 86.\n- Quatro Queijos: R$ 54 / R$ 68 / R$ 90.\nPizzas especiais (preço média / grande / gigante):\n- Prosciutto e Rúcula: R$ 62 / R$ 78 / R$ 104.\n- Burrata e Tomate Seco: R$ 66 / R$ 82 / R$ 108.\n- Trufada (cogumelos e azeite trufado): R$ 68 / R$ 84 / R$ 112.\nÉ possível pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.\nBorda recheada de catupiry ou cheddar: R$ 12 a mais, nos tamanhos grande e gigante."
+                },
+                {
+                  "fonte": "cardapio.md - Massas",
+                  "texto": "Todas as massas são frescas, feitas no dia, e servem uma pessoa.\nSpaghetti alla carbonara: R$ 58.\nFettuccine ao molho alfredo: R$ 54.\nLasanha à bolonhesa: R$ 56.\nGnocchi de batata ao sugo: R$ 50.\nRavioli de queijo com molho de tomate: R$ 57."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v2",
+    "casos": [
+      {
+        "id": 101,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.51,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 102,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.27,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 103,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.46,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 104,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.17,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não, a La Tavola não está aberta no domingo às 22:30. Funciona das 12h às 22h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "hora": "22:30",
+              "dia_semana": "domingo"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "das 12h às 22h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 105,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.04,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "A pizzaria La Tavola abre na quarta-feira às 18:00 e funciona até as 23:00.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "quarta",
+              "hora": "18:00"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 23h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 106,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 19.35,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total de seu pedido é R$ 102,60.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Portuguesa gigante",
+                  "quantidade": 1
+                },
+                {
+                  "nome": "Suco",
+                  "quantidade": 2
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Portuguesa gigante",
+                  "quantidade": 1,
+                  "valor": 86
+                },
+                {
+                  "item": "Suco",
+                  "quantidade": 2,
+                  "valor": 28
+                }
+              ],
+              "subtotal": 114.0,
+              "taxa_entrega": 0.0,
+              "desconto": 11.4,
+              "total": 102.6
+            }
+          }
+        ]
+      },
+      {
+        "id": 107,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 22.91,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 158,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "itens": [
+                {
+                  "nome": "Margherita",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "Lasanha",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                }
+              ],
+              "distancia_km": 5
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 2,
+                  "valor": 88
+                },
+                {
+                  "item": "Lasanha",
+                  "quantidade": 1,
+                  "valor": 56
+                }
+              ],
+              "subtotal": 144.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 158.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 108,
+        "tipo": "pedido",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 39.63,
+        "passos": 1,
+        "tentativas": 2,
+        "resposta": "",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 109,
+        "tipo": "pedido",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 27.87,
+        "passos": 1,
+        "tentativas": 2,
+        "resposta": "",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 110,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.68,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v3",
+    "casos": [
+      {
+        "id": 101,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 24.08,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Vale-refeição é aceito na retirada, mas não na entrega.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Vale-refeição é aceito na entrega?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "faq.md - Formas de pagamento",
+                  "texto": "Aceitamos cartão de crédito e débito (Visa, Mastercard e Elo), Pix e dinheiro.\nPara pagar em dinheiro na entrega, avise o valor para o troco.\nVale-refeição (Alelo, Sodexo e VR) é aceito apenas no salão e na retirada, não na entrega."
+                },
+                {
+                  "fonte": "faq.md - Entrega",
+                  "texto": "Entregamos em um raio de até 6 km da pizzaria.\nTaxa de entrega: R$ 8 até 3 km e R$ 14 de 3 a 6 km.\nPedidos acima de R$ 120 com entrega de até 3 km não pagam taxa.\nO pedido mínimo para entrega é de R$ 40.\nOs pedidos podem ser feitos pelo WhatsApp ou pelo site."
+                },
+                {
+                  "fonte": "faq.md - Prazo de entrega",
+                  "texto": "O tempo normal de entrega é de 40 a 60 minutos.\nÀs sextas e sábados à noite, o tempo pode chegar a 80 minutos.\nVocê recebe a estimativa no momento em que o pedido é confirmado."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.21,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 103,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 41.31,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não há opção sem glúten no cardápio atual. Informe qualquer alergia ao atendimento antes de fazer o pedido.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "tem alguma opção sem glúten"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "cardapio.md - Alergênicos",
+                  "texto": "Massas e pizzas contêm glúten. Queijos e molhos cremosos contêm lactose.\nTiramisù: contém glúten, leite e ovos. Cannoli: contém glúten, leite, ovos e pistache.\nGelato de pistache e a pizza Trufada podem conter traços de oleaginosas (castanhas).\nNão há opção sem glúten: a cozinha manipula farinha de trigo e há risco de contaminação cruzada.\nPara quem evita lactose, os itens veganos (V) não levam leite.\nInforme qualquer alergia ao atendimento antes de fazer o pedido."
+                },
+                {
+                  "fonte": "cardapio.md - Entradas",
+                  "texto": "Bruschetta de tomate e manjericão: R$ 28.\nFocaccia de alecrim com azeite: R$ 24.\nArancini (bolinho de arroz recheado com queijo): R$ 32.\nCarpaccio de carne com rúcula e lascas de parmesão: R$ 46.\nBurrata com tomate cereja e pesto: R$ 52."
+                },
+                {
+                  "fonte": "cardapio.md - Pizzas",
+                  "texto": "Todas as pizzas usam massa de fermentação natural de 48 horas e são assadas em forno a lenha.\nTamanhos: média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias).\nPizzas tradicionais (preço média / grande / gigante):\n- Margherita: R$ 44 / R$ 56 / R$ 74.\n- Calabresa: R$ 46 / R$ 58 / R$ 78.\n- Napolitana: R$ 48 / R$ 60 / R$ 80.\n- Portuguesa: R$ 52 / R$ 64 / R$ 86.\n- Quatro Queijos: R$ 54 / R$ 68 / R$ 90.\nPizzas especiais (preço média / grande / gigante):\n- Prosciutto e Rúcula: R$ 62 / R$ 78 / R$ 104.\n- Burrata e Tomate Seco: R$ 66 / R$ 82 / R$ 108.\n- Trufada (cogumelos e azeite trufado): R$ 68 / R$ 84 / R$ 112.\nÉ possível pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.\nBorda recheada de catupiry ou cheddar: R$ 12 a mais, nos tamanhos grande e gigante."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 104,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 13.85,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não, a La Tavola não está aberta no domingo às 22:30. Funciona das 12h às 22h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "domingo",
+              "hora": "22:30"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "das 12h às 22h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 105,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 13.43,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "A pizzaria La Tavola abre na quarta-feira às 18:00 e funciona até as 23:00.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "quarta",
+              "hora": "18:00"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 23h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 106,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 18.93,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total de seu pedido é R$ 102,60.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "nome": "Portuguesa gigante",
+                  "quantidade": 1
+                },
+                {
+                  "nome": "Suco",
+                  "quantidade": 2
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Portuguesa gigante",
+                  "quantidade": 1,
+                  "valor": 86
+                },
+                {
+                  "item": "Suco",
+                  "quantidade": 2,
+                  "valor": 28
+                }
+              ],
+              "subtotal": 114.0,
+              "taxa_entrega": 0.0,
+              "desconto": 11.4,
+              "total": 102.6
+            }
+          }
+        ]
+      },
+      {
+        "id": 107,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 23.39,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 158,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "distancia_km": 5,
+              "itens": [
+                {
+                  "nome": "Margherita",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "Lasanha",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                }
+              ],
+              "modo": "entrega"
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 2,
+                  "valor": 88
+                },
+                {
+                  "item": "Lasanha",
+                  "quantidade": 1,
+                  "valor": 56
+                }
+              ],
+              "subtotal": 144.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 158.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 108,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 31.32,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 164,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 3,
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Trufada",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "Napolitana",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "gelato",
+                  "quantidade": 1,
+                  "tamanho": null
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Trufada",
+                  "quantidade": 1,
+                  "valor": 84
+                },
+                {
+                  "item": "Napolitana",
+                  "quantidade": 1,
+                  "valor": 60
+                },
+                {
+                  "item": "gelato",
+                  "quantidade": 1,
+                  "valor": 20
+                }
+              ],
+              "subtotal": 164.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 164.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 109,
+        "tipo": "pedido",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": false,
+        "latencia_s": 29.43,
+        "passos": 1,
+        "tentativas": 2,
+        "resposta": "",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 110,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.56,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  },
+  {
+    "provedor": "openai",
+    "modelo": "qwen2.5:3b",
+    "prompt": "v4",
+    "casos": [
+      {
+        "id": 101,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 22.72,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Vale-refeição é aceito apenas no salão e na retirada, não na entrega.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Vale-refeição é aceito na entrega?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "faq.md - Formas de pagamento",
+                  "texto": "Aceitamos cartão de crédito e débito (Visa, Mastercard e Elo), Pix e dinheiro.\nPara pagar em dinheiro na entrega, avise o valor para o troco.\nVale-refeição (Alelo, Sodexo e VR) é aceito apenas no salão e na retirada, não na entrega."
+                },
+                {
+                  "fonte": "faq.md - Entrega",
+                  "texto": "Entregamos em um raio de até 6 km da pizzaria.\nTaxa de entrega: R$ 8 até 3 km e R$ 14 de 3 a 6 km.\nPedidos acima de R$ 120 com entrega de até 3 km não pagam taxa.\nO pedido mínimo para entrega é de R$ 40.\nOs pedidos podem ser feitos pelo WhatsApp ou pelo site."
+                },
+                {
+                  "fonte": "faq.md - Prazo de entrega",
+                  "texto": "O tempo normal de entrega é de 40 a 60 minutos.\nÀs sextas e sábados à noite, o tempo pode chegar a 80 minutos.\nVocê recebe a estimativa no momento em que o pedido é confirmado."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "tipo": "faq",
+        "ferramentas_ok": false,
+        "conteudo_ok": false,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.5,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      },
+      {
+        "id": 103,
+        "tipo": "faq",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 45.83,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Infelizmente, não há opção sem glúten no cardápio atual. Sugiro informar ao atendimento sobre sua alergia para que eles possam oferecer uma opção adequada.",
+        "ferramentas": [
+          "buscar_informacoes"
+        ],
+        "chamadas": [
+          {
+            "nome": "buscar_informacoes",
+            "args": {
+              "pergunta": "Vocês têm alguma opção sem glúten?"
+            },
+            "resultado": {
+              "trechos": [
+                {
+                  "fonte": "cardapio.md - Alergênicos",
+                  "texto": "Massas e pizzas contêm glúten. Queijos e molhos cremosos contêm lactose.\nTiramisù: contém glúten, leite e ovos. Cannoli: contém glúten, leite, ovos e pistache.\nGelato de pistache e a pizza Trufada podem conter traços de oleaginosas (castanhas).\nNão há opção sem glúten: a cozinha manipula farinha de trigo e há risco de contaminação cruzada.\nPara quem evita lactose, os itens veganos (V) não levam leite.\nInforme qualquer alergia ao atendimento antes de fazer o pedido."
+                },
+                {
+                  "fonte": "cardapio.md - Entradas",
+                  "texto": "Bruschetta de tomate e manjericão: R$ 28.\nFocaccia de alecrim com azeite: R$ 24.\nArancini (bolinho de arroz recheado com queijo): R$ 32.\nCarpaccio de carne com rúcula e lascas de parmesão: R$ 46.\nBurrata com tomate cereja e pesto: R$ 52."
+                },
+                {
+                  "fonte": "cardapio.md - Pizzas",
+                  "texto": "Todas as pizzas usam massa de fermentação natural de 48 horas e são assadas em forno a lenha.\nTamanhos: média (30 cm, 6 fatias), grande (35 cm, 8 fatias) e gigante (40 cm, 12 fatias).\nPizzas tradicionais (preço média / grande / gigante):\n- Margherita: R$ 44 / R$ 56 / R$ 74.\n- Calabresa: R$ 46 / R$ 58 / R$ 78.\n- Napolitana: R$ 48 / R$ 60 / R$ 80.\n- Portuguesa: R$ 52 / R$ 64 / R$ 86.\n- Quatro Queijos: R$ 54 / R$ 68 / R$ 90.\nPizzas especiais (preço média / grande / gigante):\n- Prosciutto e Rúcula: R$ 62 / R$ 78 / R$ 104.\n- Burrata e Tomate Seco: R$ 66 / R$ 82 / R$ 108.\n- Trufada (cogumelos e azeite trufado): R$ 68 / R$ 84 / R$ 112.\nÉ possível pedir meio a meio (dois sabores na mesma pizza) nos tamanhos grande e gigante. O valor é o do sabor mais caro.\nBorda recheada de catupiry ou cheddar: R$ 12 a mais, nos tamanhos grande e gigante."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 104,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.31,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Não estamos abertos no domingo às 22:30. Estamos abertos das 12h às 22h.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "domingo",
+              "hora": "22:30"
+            },
+            "resultado": {
+              "funciona": false,
+              "horario": "das 12h às 22h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 105,
+        "tipo": "horario",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 14.66,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "A pizzaria La Tavola abre na quarta-feira às 18:00 e funciona até as 23:00.",
+        "ferramentas": [
+          "verificar_horario"
+        ],
+        "chamadas": [
+          {
+            "nome": "verificar_horario",
+            "args": {
+              "dia_semana": "quarta",
+              "hora": "18:00"
+            },
+            "resultado": {
+              "funciona": true,
+              "horario": "das 18h às 23h"
+            }
+          }
+        ]
+      },
+      {
+        "id": 106,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 25.75,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total para a retirada desses itens é R$ 102,60.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Portuguesa gigante",
+                  "quantidade": 1,
+                  "tamanho": "gigante"
+                },
+                {
+                  "borda": false,
+                  "nome": "Suco",
+                  "quantidade": 2,
+                  "tamanho": null
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Portuguesa gigante",
+                  "quantidade": 1,
+                  "valor": 86
+                },
+                {
+                  "item": "Suco",
+                  "quantidade": 2,
+                  "valor": 28
+                }
+              ],
+              "subtotal": 114.0,
+              "taxa_entrega": 0.0,
+              "desconto": 11.4,
+              "total": 102.6
+            }
+          }
+        ]
+      },
+      {
+        "id": 107,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 26.15,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 158.00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Margherita",
+                  "quantidade": 2,
+                  "tamanho": "media"
+                },
+                {
+                  "borda": false,
+                  "nome": "Lasanha",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                }
+              ],
+              "modo": "entrega",
+              "distancia_km": 5
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Margherita",
+                  "quantidade": 2,
+                  "valor": 88
+                },
+                {
+                  "item": "Lasanha",
+                  "quantidade": 1,
+                  "valor": 56
+                }
+              ],
+              "subtotal": 144.0,
+              "taxa_entrega": 14.0,
+              "desconto": 0.0,
+              "total": 158.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 108,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 33.86,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "O total do seu pedido é R$ 164,00.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "entrega",
+              "distancia_km": 3,
+              "itens": [
+                {
+                  "borda": false,
+                  "nome": "Trufada",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "Napolitana",
+                  "quantidade": 1,
+                  "tamanho": "grande"
+                },
+                {
+                  "borda": false,
+                  "nome": "gelato",
+                  "quantidade": 1,
+                  "tamanho": null
+                }
+              ]
+            },
+            "resultado": {
+              "itens": [
+                {
+                  "item": "Trufada",
+                  "quantidade": 1,
+                  "valor": 84
+                },
+                {
+                  "item": "Napolitana",
+                  "quantidade": 1,
+                  "valor": 60
+                },
+                {
+                  "item": "gelato",
+                  "quantidade": 1,
+                  "valor": 20
+                }
+              ],
+              "subtotal": 164.0,
+              "taxa_entrega": 0.0,
+              "desconto": 0.0,
+              "total": 164.0
+            }
+          }
+        ]
+      },
+      {
+        "id": 109,
+        "tipo": "pedido",
+        "ferramentas_ok": true,
+        "conteudo_ok": true,
+        "passou": true,
+        "recusou": false,
+        "latencia_s": 23.68,
+        "passos": 2,
+        "tentativas": 1,
+        "resposta": "Desculpe, bordas recheadas só existem nos tamanhos grande e gigante. Você pode pedir uma Calabresa média sem borda recheada.",
+        "ferramentas": [
+          "calcular_pedido"
+        ],
+        "chamadas": [
+          {
+            "nome": "calcular_pedido",
+            "args": {
+              "modo": "retirada",
+              "itens": [
+                {
+                  "borda": true,
+                  "nome": "Calabresa",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                },
+                {
+                  "nome": "Cheddar",
+                  "quantidade": 1,
+                  "tamanho": "media"
+                }
+              ]
+            },
+            "resultado": {
+              "erro": "Borda recheada só existe nos tamanhos grande e gigante."
+            }
+          }
+        ]
+      },
+      {
+        "id": 110,
+        "tipo": "sem_resposta",
+        "ferramentas_ok": false,
+        "conteudo_ok": true,
+        "passou": false,
+        "recusou": true,
+        "latencia_s": 3.56,
+        "passos": 1,
+        "tentativas": 1,
+        "resposta": "Não encontrei essa informação. Sugiro falar com o atendimento.",
+        "ferramentas": [],
+        "chamadas": []
+      }
+    ]
+  }
+]

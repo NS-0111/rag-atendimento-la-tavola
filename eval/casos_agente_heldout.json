@@ -1,0 +1,149 @@
+[
+  {
+    "id": 101,
+    "tipo": "faq",
+    "pergunta": "Vale-refeição é aceito na entrega?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "salão",
+      "salao"
+    ]
+  },
+  {
+    "id": 102,
+    "tipo": "faq",
+    "pergunta": "Posso cancelar o pedido depois de confirmado?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "5 minutos"
+    ]
+  },
+  {
+    "id": 103,
+    "tipo": "faq",
+    "pergunta": "Vocês têm alguma opção sem glúten?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "contaminação",
+      "não há opção",
+      "não temos",
+      "não tem"
+    ]
+  },
+  {
+    "id": 104,
+    "tipo": "horario",
+    "pergunta": "Vocês estão abertos no domingo às 22:30?",
+    "obrigatorias": [
+      "verificar_horario"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "22h",
+      "22:00",
+      "fecha",
+      "fechad",
+      "encerr"
+    ]
+  },
+  {
+    "id": 105,
+    "tipo": "horario",
+    "pergunta": "A pizzaria abre na quarta às 18:00?",
+    "obrigatorias": [
+      "verificar_horario"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "abre",
+      "aberto",
+      "abertos",
+      "funcion",
+      "18h"
+    ]
+  },
+  {
+    "id": 106,
+    "tipo": "pedido",
+    "pergunta": "Vou retirar 1 pizza Portuguesa gigante e 2 sucos. Quanto fica?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "102,60",
+      "102.60"
+    ]
+  },
+  {
+    "id": 107,
+    "tipo": "pedido",
+    "pergunta": "Quero 2 Margheritas médias e 1 lasanha com entrega a 5 km. Quanto dá no total?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "158"
+    ]
+  },
+  {
+    "id": 108,
+    "tipo": "pedido",
+    "pergunta": "Entrega a 3 km: 1 Trufada grande, 1 Napolitana grande e 1 gelato. Qual o total?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "164"
+    ]
+  },
+  {
+    "id": 109,
+    "tipo": "pedido",
+    "pergunta": "Quero retirar uma Calabresa média com borda de cheddar. Quanto fica?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "grande",
+      "gigante"
+    ]
+  },
+  {
+    "id": 110,
+    "tipo": "sem_resposta",
+    "pergunta": "Vocês têm cardápio infantil?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "não encontrei",
+      "atendimento"
+    ]
+  }
+]

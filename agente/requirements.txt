@@ -1,0 +1,4 @@
+# Instale só os provedores que for usar (as chaves vão em variáveis de ambiente).
+anthropic      # ANTHROPIC_API_KEY
+openai         # OPENAI_API_KEY
+google-genai   # GEMINI_API_KEY

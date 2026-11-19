@@ -1,0 +1,148 @@
+[
+  {
+    "id": 1,
+    "tipo": "faq",
+    "pergunta": "Qual o prazo do reembolso?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "5 dias"
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "horario",
+    "pergunta": "Vocês estão abertos na sexta às 23:30?",
+    "obrigatorias": [
+      "verificar_horario"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "aberto",
+      "abertos",
+      "funcion",
+      "meia-noite",
+      "00h"
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "horario",
+    "pergunta": "Vocês abrem na segunda-feira?",
+    "obrigatorias": [
+      "verificar_horario"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "fechado",
+      "não abr",
+      "nao abr",
+      "não funcion"
+    ]
+  },
+  {
+    "id": 4,
+    "tipo": "pedido",
+    "pergunta": "Quero 1 pizza Margherita grande com borda de catupiry e 2 refrigerantes, entrega a 4 km. Quanto fica?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "98"
+    ]
+  },
+  {
+    "id": 5,
+    "tipo": "pedido",
+    "pergunta": "Vou retirar 2 pizzas Calabresa médias e 1 chope. Qual o total?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "98,80",
+      "98.80"
+    ]
+  },
+  {
+    "id": 6,
+    "tipo": "pedido",
+    "pergunta": "Pedido para entrega a 2 km: 1 Quatro Queijos gigante, 1 Prosciutto e Rúcula grande e 1 tiramisù. Quanto dá no total?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "194"
+    ]
+  },
+  {
+    "id": 7,
+    "tipo": "pedido",
+    "pergunta": "Quero só uma água sem gás com entrega, moro a 2 km. Quanto fica?",
+    "obrigatorias": [
+      "calcular_pedido"
+    ],
+    "proibidas": [],
+    "uma_destas": [
+      "40",
+      "mínimo",
+      "minimo"
+    ]
+  },
+  {
+    "id": 8,
+    "tipo": "faq",
+    "pergunta": "Vocês entregam num lugar a 8 km daí?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "6 km"
+    ]
+  },
+  {
+    "id": 9,
+    "tipo": "faq",
+    "pergunta": "Sou vegano, o que posso comer aí?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "penne",
+      "legumes grelhados",
+      "bruschetta"
+    ]
+  },
+  {
+    "id": 10,
+    "tipo": "sem_resposta",
+    "pergunta": "Vocês têm estacionamento próprio?",
+    "obrigatorias": [
+      "buscar_informacoes"
+    ],
+    "proibidas": [
+      "calcular_pedido"
+    ],
+    "uma_destas": [
+      "não encontrei",
+      "nao encontrei",
+      "atendimento"
+    ]
+  }
+]
